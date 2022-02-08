@@ -7,6 +7,7 @@
   </div>
 
   <Discount v-if="showDiscount == true"/>
+  <p v-if="amount > 0">지금 결제하면 {{amount}}% 할인!</p>
 
   <button @click="priceSort">가격순 정렬</button>
   <button @click="sortBack">되돌리기</button>
@@ -35,7 +36,7 @@ export default {
       modalOpen : false,
       report : [0,0,0],
       menus : ['Home', 'Products', 'About'],
-      products : ['역삼동원룸','천호동원룸','마포구원룸']
+      amount : 30,
     }
   },
   methods :{
@@ -52,10 +53,9 @@ export default {
     }
   },
 
-  mounted(){
-    setTimeout(()=>{
-      this.showDiscount = false
-    },2000)
+  mounted(){setInterval(() => {
+      this.amount--
+    }, 1000)
   },
 
   components: {
