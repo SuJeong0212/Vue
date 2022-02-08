@@ -1,12 +1,18 @@
 <template>
-  <Modal :onerooms="onerooms" :click="click" :modalOpen="modalOpen"/>
-
+  <Modal @closeBtn="modalOpen = false" :onerooms="onerooms" :click="click" :modalOpen="modalOpen"/>
   <div class="menu">
     <a v-for="menu in menus" :key="menu" href="#none">{{menu}}</a>
   </div>
 
   <Discount/>
 
+  <Card @openModal="modalOpen = true; click = $event" :data="onerooms[i]" v-for="(oneroomWrap,i) in onerooms" :key="oneroomWrap"></card>
+  <!-- <Card :oneroom="oneroomsWrap[0]"/>
+  <Card :oneroom="oneroomsWrap[1]"/>
+  <Card :oneroom="oneroomsWrap[2]"/>
+  <Card :oneroom="oneroomsWrap[3]"/>
+  <Card :oneroom="oneroomsWrap[4]"/>
+  <Card :oneroom="oneroomsWrap[5]"/> -->
 
  
 </template>
@@ -16,6 +22,7 @@
 import data from './assets/oneroom.js'
 import Discount from './Discount.vue'
 import Modal from './Modal.vue'
+import Card from './Card.vue'
 
 export default {
   name: 'App',
@@ -38,6 +45,7 @@ export default {
   components: {
     Discount,
     Modal,
+    Card,
   }
 }
 </script>
