@@ -6,13 +6,9 @@
 
   <Discount/>
 
+  <div class="start">
   <Card @openModal="modalOpen = true; click = $event" :data="onerooms[i]" v-for="(oneroomWrap,i) in onerooms" :key="oneroomWrap"></card>
-  <!-- <Card :oneroom="oneroomsWrap[0]"/>
-  <Card :oneroom="oneroomsWrap[1]"/>
-  <Card :oneroom="oneroomsWrap[2]"/>
-  <Card :oneroom="oneroomsWrap[3]"/>
-  <Card :oneroom="oneroomsWrap[4]"/>
-  <Card :oneroom="oneroomsWrap[5]"/> -->
+  </div>
 
  
 </template>
@@ -100,5 +96,12 @@ div{
   padding: 10px;
   margin: 10px;
   border-radius: 5px;
+}
+
+.start{
+  opacity:0;
+}
+.end{
+  opacity: 1;
 }
 </style>
