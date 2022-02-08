@@ -6,7 +6,7 @@
     <a v-for="menu in menus" :key="menu" href="#none">{{menu}}</a>
   </div>
 
-  <Discount/>
+  <Discount v-if="showDiscount == true"/>
 
   <button @click="priceSort">가격순 정렬</button>
   <button @click="sortBack">되돌리기</button>
@@ -23,10 +23,12 @@ import Discount from './Discount.vue'
 import Modal from './Modal.vue'
 import Card from './Card.vue'
 
+
 export default {
   name: 'App',
   data(){
     return {
+      showDiscount : true,
       oneroomsOriginal : [...data],
       click : 0,
       onerooms : data,
@@ -48,6 +50,12 @@ export default {
         return a.price - b.price
       })
     }
+  },
+
+  mounted(){
+    setTimeout(()=>{
+      this.showDiscount = false
+    },2000)
   },
 
   components: {
